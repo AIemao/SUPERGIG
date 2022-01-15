@@ -1,34 +1,29 @@
 var express = require('express');
+const res = require('express/lib/response');
 var router = express.Router();
+var { usuarios } = require('../database');
 
 
-router.get('/', function (req, res){
-
-    var usuarios = [
-        {
-            id: 1,
-            nome: "Celio",
-            email: "teste@teste.com"
-        }
-    ];
-
-    res.send(usuarios);
+router.get('/', async function (req, res){
+    var dados = await usuarios.todos();
+    res.send(dados);
 });
 
-router.post('/', function(req, res){
-    res.send('criar');
+router.post('/', async function(req, res){
+    res.send(await usuarios.inserir(req.body));
 }); 
 
-router.get('/:id', function(req, res){
-    res.send(`consulta o id ${req.params.id}`);
+router.get('/:id', async function(req, res){
+    var dados = await usuarios.consultar(req.params.id);
+    res.send(dados);
 });  
 
-router.put('/:id', function(req, res){
-    res.send(`atualizar o id ${req.params.id}`);
+router.put('/:id', async function(req, res){
+    res.send(await usuarios.alterar(req.params.id, req.body));
 });  
 
-router.delete('/:id', function(req, res){
-    res.send(`remove o id ${req.params.id}`);
+router.delete('/:id', async function(req, res){
+    res.send(await usuarios.remover(req.params.id));
 });  
 
 module.exports = router;    

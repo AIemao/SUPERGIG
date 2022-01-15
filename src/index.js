@@ -3,8 +3,9 @@ var morgan = require('morgan')
 //var logs = require('./middleware/log');
 
 var app = express()
+app.use(express.json());
 
-app.use(morgan('tiny'))
+app.use(morgan('dev'))
 //app.use(logs);
 
 var usuarios = require('./routes/usuarios');
@@ -36,4 +37,5 @@ app.listen(3000, function(){
     const db = require('./database');
     db.usuarios.ddl.create();
     db.bandas.ddl.create();
+    db.bandas_estilo.ddl.create();
 }); 
