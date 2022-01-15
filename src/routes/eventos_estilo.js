@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res){
-    res.send('listar todos os Eventos');
+    res.send('listar todas Eventos Estilo');
 });
 
 router.post('/', function(req, res){
-    res.send('Criar Evento');
+    res.send('Criar Eventos Estilo');
 });
 
 router.get('/:id', function(req, res){

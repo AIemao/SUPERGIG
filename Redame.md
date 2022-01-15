@@ -23,3 +23,14 @@ Javascript
 NodeJS
 Quasar
 Vue
+
+Insommia
+nodemon
+express
+sequelize
+middleware (ele faz o mid entre as requisições e respostas)
+morgan (ele faz o log das requisições)
+
+LINKS
+passaportjs.org //autenticação
+expressjs.com // morgan
