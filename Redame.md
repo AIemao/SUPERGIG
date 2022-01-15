@@ -2,6 +2,9 @@ Projeto em AULA SENAC.
 
 SUPERGIG é um projeto de aplicativo de gerenciamento de bandas e eventos.
 
+API para consulta, criação, alteração e etc
+Banco de dados mysql
+
 Servidor (API)
 Javascript,
 NodeJS,

@@ -1,11 +1,11 @@
 var express = require('express')
 var morgan = require('morgan')
-var logs = require('./middleware/log');
+//var logs = require('./middleware/log');
 
 var app = express()
 
 app.use(morgan('tiny'))
-app.use(logs);
+//app.use(logs);
 
 var usuarios = require('./routes/usuarios');
 var bandasestilo = require('./routes/bandas_estilo');
@@ -32,4 +32,8 @@ app.all("*", function(req, res, next) {
 
 app.listen(3000, function(){
     console.log('Servidor rodando na porta 3000');
+
+    const db = require('./database');
+    db.usuarios.ddl.create();
+    db.bandas.ddl.create();
 }); 
